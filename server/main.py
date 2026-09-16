@@ -63,7 +63,18 @@ def get_portal_stats():
 
 
 # Mount Static directory
-static_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "static")
+base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+static_dir = os.path.join(base_dir, "static")
+if not os.path.exists(static_dir):
+    for candidate in [
+        os.path.join(os.path.dirname(os.path.abspath(__file__)), "static"),
+        os.path.join(os.getcwd(), "static"),
+        os.path.join(os.getcwd(), "server", "static")
+    ]:
+        if os.path.exists(candidate):
+            static_dir = candidate
+            break
+
 if os.path.exists(static_dir):
     app.mount("/", StaticFiles(directory=static_dir, html=True), name="static")
 

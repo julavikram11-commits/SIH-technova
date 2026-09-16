@@ -11,6 +11,15 @@ from server.data_store import data_store
 from server.press_kit_generator import generate_press_kit_zip
 
 STATIC_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "static")
+if not os.path.exists(STATIC_DIR):
+    for candidate in [
+        os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "static"),
+        os.path.join(os.getcwd(), "static"),
+        os.path.join(os.getcwd(), "server", "static")
+    ]:
+        if os.path.exists(candidate):
+            STATIC_DIR = candidate
+            break
 
 router = APIRouter(prefix="/api/media", tags=["Media Dissemination"])
 
