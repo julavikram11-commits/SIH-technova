@@ -160,7 +160,7 @@ const RepoModule = {
           <button type="button" class="btn-cite" onclick="RepoModule.openCitationModal('${p.id}')">
             BibTeX Citation
           </button>
-          <span class="doi-link">DOI: ${p.doi}</span>
+          <a href="https://doi.org/${encodeURIComponent(p.doi)}" target="_blank" rel="noopener noreferrer" class="doi-link" title="Open DOI in new tab" style="color: var(--polar-cyan); text-decoration: none;">DOI: ${p.doi}</a>
         </div>
       </article>
     `).join('');
@@ -201,7 +201,7 @@ const RepoModule = {
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; font-size: 0.78rem; font-family: var(--font-mono); background: var(--bg-surface); padding: 14px; border-radius: var(--radius-sm); margin-bottom: 18px; border: 1px solid var(--border-subtle);">
         <div><span style="color: var(--text-muted);">Publication ID:</span> <strong style="color: var(--text-primary);">${pub.id}</strong></div>
         <div><span style="color: var(--text-muted);">Year:</span> <strong style="color: var(--text-primary);">${pub.year}</strong></div>
-        <div><span style="color: var(--text-muted);">DOI:</span> <strong style="color: var(--polar-cyan);">${pub.doi}</strong></div>
+        <div><span style="color: var(--text-muted);">DOI:</span> <a href="https://doi.org/${encodeURIComponent(pub.doi)}" target="_blank" rel="noopener noreferrer" style="color: var(--polar-cyan); text-decoration: underline;" title="Open DOI in new tab"><strong>${pub.doi}</strong></a></div>
         <div><span style="color: var(--text-muted);">Dataset:</span> <strong style="color: var(--status-active);">${pub.dataset_attached || 'Annexed'}</strong></div>
       </div>
 

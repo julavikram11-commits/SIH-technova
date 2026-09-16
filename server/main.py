@@ -62,6 +62,8 @@ def get_portal_stats():
     }
 
 
+from fastapi.responses import FileResponse
+
 # Mount Static directory
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 static_dir = os.path.join(base_dir, "static")
@@ -74,6 +76,21 @@ if not os.path.exists(static_dir):
         if os.path.exists(candidate):
             static_dir = candidate
             break
+
+# Client-side portal routes (SPA fallback to index.html)
+@app.get("/resources", include_in_schema=False)
+@app.get("/repository", include_in_schema=False)
+@app.get("/media", include_in_schema=False)
+@app.get("/stations", include_in_schema=False)
+@app.get("/about", include_in_schema=False)
+@app.get("/admin", include_in_schema=False)
+@app.get("/outreach", include_in_schema=False)
+def serve_portal_client_routes():
+    index_path = os.path.join(static_dir, "index.html")
+    if os.path.exists(index_path):
+        return FileResponse(index_path)
+    from fastapi import HTTPException
+    raise HTTPException(status_code=404, detail="Portal index.html not found")
 
 if os.path.exists(static_dir):
     app.mount("/", StaticFiles(directory=static_dir, html=True), name="static")

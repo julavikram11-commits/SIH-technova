@@ -1,4 +1,4 @@
-﻿{
+{
   "rewrites": [
     {
       "source": "/api",
@@ -26,6 +26,34 @@
     },
     {
       "source": "/",
+      "destination": "/static/index.html"
+    },
+    {
+      "source": "/resources",
+      "destination": "/static/index.html"
+    },
+    {
+      "source": "/repository",
+      "destination": "/static/index.html"
+    },
+    {
+      "source": "/media",
+      "destination": "/static/index.html"
+    },
+    {
+      "source": "/stations",
+      "destination": "/static/index.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/static/index.html"
+    },
+    {
+      "source": "/admin",
+      "destination": "/static/index.html"
+    },
+    {
+      "source": "/outreach",
       "destination": "/static/index.html"
     },
     {

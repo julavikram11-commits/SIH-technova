@@ -24,6 +24,23 @@ const App = {
     if (window.AIChatModule) AIChatModule.init();
     if (window.AdminModule) AdminModule.init();
 
+    // Check URL path or hash for deep linking (e.g. /resources, /repository, /media, /stations, /about, /admin)
+    const validTabs = ['outreach', 'repository', 'stations', 'media', 'resources', 'about', 'admin'];
+    let initialTab = 'outreach';
+    const pathSegment = window.location.pathname.replace(/^\/+/, '').split('/')[0].toLowerCase();
+    if (validTabs.includes(pathSegment)) {
+      initialTab = pathSegment;
+    } else if (window.location.hash) {
+      const hashTab = window.location.hash.replace('#', '').replace('view-', '').toLowerCase();
+      if (validTabs.includes(hashTab)) {
+        initialTab = hashTab;
+      }
+    }
+
+    if (initialTab !== 'outreach') {
+      this.switchTab(initialTab, false);
+    }
+
     console.log("NCPOR Polar Science Portal Initialized (SIH26063 - Light Institutional Theme)");
   },
 
@@ -38,6 +55,14 @@ const App = {
         if (navLinks) navLinks.classList.remove('open');
       });
     });
+
+    // Handle browser back and forward history buttons
+    window.addEventListener('popstate', () => {
+      const validTabs = ['outreach', 'repository', 'stations', 'media', 'resources', 'about', 'admin'];
+      const pathSegment = window.location.pathname.replace(/^\/+/, '').split('/')[0].toLowerCase();
+      const tab = validTabs.includes(pathSegment) ? pathSegment : 'outreach';
+      this.switchTab(tab, false);
+    });
   },
 
   bindMobileNav() {
@@ -50,8 +75,18 @@ const App = {
     }
   },
 
-  switchTab(tabId) {
+  switchTab(tabId, updateHistory = true) {
+    const validTabs = ['outreach', 'repository', 'stations', 'media', 'resources', 'about', 'admin'];
+    if (!validTabs.includes(tabId)) tabId = 'outreach';
     this.activeTab = tabId;
+
+    // Update browser URL history if supported
+    if (updateHistory && window.history && window.history.pushState) {
+      const targetPath = tabId === 'outreach' ? '/' : `/${tabId}`;
+      if (window.location.pathname !== targetPath) {
+        window.history.pushState({ tab: tabId }, '', targetPath);
+      }
+    }
 
     // Update Nav Buttons
     document.querySelectorAll('.nav-btn').forEach(btn => {
@@ -82,9 +117,14 @@ const App = {
       MediaModule.renderVideos(); 
       MediaModule.renderAudios(); 
     }
-    if (tabId === 'resources' && window.OutreachModule) {
-      OutreachModule.loadToolkits();
-      OutreachModule.loadQuiz();
+    if (tabId === 'resources') {
+      if (window.OutreachModule) {
+        OutreachModule.loadToolkits();
+        OutreachModule.loadQuiz();
+      }
+      if (window.RepoModule) {
+        RepoModule.loadDatasets();
+      }
     }
     if (tabId === 'admin' && window.AdminModule) AdminModule.onActivate();
   },
