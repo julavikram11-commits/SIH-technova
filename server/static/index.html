@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NCPOR | Integrated Polar Science Outreach, Knowledge Repository & Media Dissemination Portal</title>
+  <meta name="description" content="Official Gateway for India's Polar Science expeditions in Antarctica (Bharati, Maitri), Arctic (Himadri), Southern Ocean, and the Himalayan Third Pole (Himansh) by MoES / NCPOR (SIH26063)." />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>❄️</text></svg>" />
+</head>
+<body>
+
+  <!-- 1. GIGW Accessibility & Govt Top Bar -->
+  <aside class="govt-topbar" aria-label="Government Banner & Accessibility Controls">
+    <div class="container govt-topbar-inner">
+      <div class="govt-brand-tag">
+        <div class="tricolor-stripe" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+        <span>भारत सरकार | Government of India • पृथ्वी विज्ञान मंत्रालय | Ministry of Earth Sciences (MoES) • NCPOR</span>
+      </div>
+      <div class="accessibility-controls">
+        <button type="button" class="acc-btn" id="btn-high-contrast" title="Toggle High Contrast Mode" aria-label="Toggle High Contrast Mode">High Contrast</button>
+        <button type="button" class="acc-btn" id="btn-font-minus" title="Decrease Font Size" aria-label="Decrease Font Size">A-</button>
+        <button type="button" class="acc-btn" id="btn-font-normal" title="Normal Font Size" aria-label="Reset Font Size">A</button>
+        <button type="button" class="acc-btn" id="btn-font-plus" title="Increase Font Size" aria-label="Increase Font Size">A+</button>
+        <button type="button" class="acc-btn" id="btn-tts-reader" title="Text to Speech Screen Reader" aria-label="Listen to Screen Reader">Listen</button>
+        <button type="button" class="acc-btn" id="btn-lang-toggle" title="Switch Language" aria-label="Switch Language between English and Hindi">English | हिंदी</button>
+        <button type="button" class="acc-link-admin" onclick="App.switchTab('admin');" title="Access Editorial Console">Editorial Desk</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- 2. Sticky Header & Streamlined Navigation -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="#" class="logo-group" onclick="App.switchTab('outreach'); return false;" aria-label="NCPOR Polar Science Portal Home">
+        <div class="logo-mark" aria-hidden="true">NCPOR</div>
+        <div class="logo-text">
+          <span class="logo-heading">POLAR SCIENCE PORTAL</span>
+          <span class="logo-subtext">National Centre for Polar and Ocean Research • MoES</span>
+        </div>
+      </a>
+
+      <button type="button" class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle navigation menu">
+        ☰
+      </button>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li>
+            <button type="button" class="nav-btn active" data-tab="outreach" aria-label="Home Overview">
+              HOME
+            </button>
+          </li>
+          <li>
+            <button type="button" class="nav-btn" data-tab="repository" aria-label="Explore Polar Science Research and Publications">
+              EXPLORE POLAR SCIENCE
+            </button>
+          </li>
+          <li>
+            <button type="button" class="nav-btn" data-tab="stations" aria-label="Indian Research Stations and Observatories">
+              INDIAN RESEARCH
+            </button>
+          </li>
+          <li>
+            <button type="button" class="nav-btn" data-tab="media" aria-label="Media Hub Videos and Audio">
+              MEDIA
+            </button>
+          </li>
+          <li>
+            <button type="button" class="nav-btn" data-tab="resources" aria-label="Educational Resources and Toolkits">
+              RESOURCES
+            </button>
+          </li>
+          <li>
+            <button type="button" class="nav-btn" data-tab="about" aria-label="About NCPOR and Mandate">
+              ABOUT
+            </button>
+          </li>
+          <li>
+            <button type="button" class="nav-btn btn-nav-ai" onclick="AIChatModule.openChat(); return false;" aria-label="Launch Floating Polar AI Assistant">
+              <span class="nav-ai-sparkle">✨</span> POLAR AI
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <span class="portal-code-badge" title="Smart India Hackathon 2026 / MoES Track">SIH26063</span>
+    </div>
+  </header>
+
+  <!-- 3. Dynamic Live Polar Telemetry Stream -->
+  <section class="telemetry-ticker" aria-label="Live Field Telemetry Stream">
+    <div class="container ticker-inner">
+      <div class="ticker-label">
+        <span class="live-dot" aria-hidden="true"></span>
+        <span>Live Station Telemetry:</span>
+      </div>
+      <div class="ticker-items" id="ticker-items-container">
+        <span style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono);">Acquiring satellite downlinks from Antarctic and Arctic research bases...</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       VIEW 1: HOME & OVERVIEW (STUDENT & VISITOR FRIENDLY)
+       ========================================================================== -->
+  <main class="portal-view" id="view-outreach">
+    
+    <!-- Welcome Headline & Portal Mission Statement -->
+    <section class="portal-welcome-banner" aria-label="Portal Overview and Quick Actions">
+      <div class="container">
+        <div class="welcome-intro-card">
+          <div class="welcome-intro-content">
+            <span class="section-tag">National Centre for Polar and Ocean Research • MoES</span>
+            <h1 class="welcome-title">India's Gateway to Polar & Cryospheric Science</h1>
+            <p class="welcome-subtitle">
+              Welcome to the official scientific portal uniting 40+ years of pioneering research across <strong>Antarctica</strong> (Bharati & Maitri), the <strong>Arctic</strong> (Himadri & IndARC), the <strong>Southern Ocean</strong>, and the <strong>Himalayan Third Pole</strong> (Himansh). Built for students, educators, scientists, and curious minds.
+            </p>
+          </div>
+
+          <!-- 4 Quick-Action Student & Visitor Cards -->
+          <div class="quick-action-cards-grid">
+            <div class="quick-action-card" onclick="App.switchTab('repository');" role="button" tabindex="0">
+              <div class="qa-icon">❄️</div>
+              <div class="qa-info">
+                <h3>Explore Polar Science</h3>
+                <p>Discover ice core records, climate change, ocean currents, and glaciology.</p>
+                <span class="qa-link">Explore Science →</span>
+              </div>
+            </div>
+
+            <div class="quick-action-card" onclick="App.switchTab('stations');" role="button" tabindex="0">
+              <div class="qa-icon">🇮🇳</div>
+              <div class="qa-info">
+                <h3>Indian Research Stations</h3>
+                <p>Tour Bharati, Maitri, Himadri, and Himansh with live sensory telemetry.</p>
+                <span class="qa-link">View Stations →</span>
+              </div>
+            </div>
+
+            <div class="quick-action-card" onclick="App.switchTab('media');" role="button" tabindex="0">
+              <div class="qa-icon">🎥</div>
+              <div class="qa-info">
+                <h3>Watch Videos & Audio</h3>
+                <p>Watch 4K documentaries and listen to glacier calving & hydrophone soundscapes.</p>
+                <span class="qa-link">Open Media Hub →</span>
+              </div>
+            </div>
+
+            <div class="quick-action-card qa-card-ai" onclick="AIChatModule.openChat();" role="button" tabindex="0">
+              <div class="qa-icon">🤖</div>
+              <div class="qa-info">
+                <h3>Ask Polar AI Assistant</h3>
+                <p>Chat naturally with our conversational assistant for simple or advanced answers.</p>
+                <span class="qa-link">Chat with AI ✨ →</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hero Hub Section: Featured Carousel (70%) + Live News Stream (30%) -->
+    <section class="hero-hub-section" aria-label="Featured Expeditions and Latest Bulletins">
+      <div class="container">
+        <div class="hero-hub-grid">
+          
+          <!-- Left Column: Featured Rotating Expedition Carousel (70%) -->
+          <div class="featured-carousel-card">
+            <div class="carousel-slide-media" id="carousel-media-container">
+              <img src="/assets/images/bharati.jpg" alt="Bharati Research Station, Antarctica" id="carousel-slide-img" />
+              <span class="carousel-slide-badge" id="carousel-slide-badge">43rd ISEA • Antarctica</span>
+            </div>
+            <div class="carousel-slide-content">
+              <div>
+                <h2 class="carousel-slide-title" id="carousel-slide-title">
+                  Bharati Research Station: Continental Cryosphere & Oceanography
+                </h2>
+                <p class="carousel-slide-summary" id="carousel-slide-summary">
+                  Constructed from 134 modular prefabricated containers on stilts in Larsemann Hills, East Antarctica, Bharati serves as India's year-round hub for paleoclimatology, ocean dynamics, and direct satellite telemetry.
+                </p>
+              </div>
+
+              <div style="display: flex; gap: var(--space-xs); flex-wrap: wrap; margin-bottom: var(--space-md);">
+                <button type="button" class="btn-hero-primary" onclick="App.switchTab('stations');">
+                  Explore Research Bases
+                </button>
+                <button type="button" class="btn-cite" onclick="AIChatModule.openWithPrompt('What are the scientific objectives of India\'s Antarctic research?');">
+                  ✨ Ask Polar AI
+                </button>
+                <button type="button" class="btn-cite" onclick="App.switchTab('media');">
+                  Watch Expedition Videos
+                </button>
+              </div>
+
+              <!-- Carousel Navigation & Indicators -->
+              <div class="carousel-controls-row">
+                <div class="carousel-dots" id="carousel-dots-container">
+                  <button type="button" class="carousel-dot active" onclick="OutreachModule.goToSlide(0)" aria-label="Slide 1"></button>
+                  <button type="button" class="carousel-dot" onclick="OutreachModule.goToSlide(1)" aria-label="Slide 2"></button>
+                  <button type="button" class="carousel-dot" onclick="OutreachModule.goToSlide(2)" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-nav-btns">
+                  <button type="button" class="carousel-nav-btn" onclick="OutreachModule.prevSlide()" aria-label="Previous Slide">‹</button>
+                  <button type="button" class="carousel-nav-btn" onclick="OutreachModule.nextSlide()" aria-label="Next Slide">›</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Live-Feeling News & Bulletins Sidebar (30%) -->
+          <aside class="news-ticker-sidebar" aria-label="Latest Polar News and Bulletins">
+            <div class="news-ticker-header">
+              <div class="news-ticker-heading">
+                <span class="live-dot" aria-hidden="true"></span>
+                <span>Latest Bulletins</span>
+              </div>
+              <span class="news-ticker-status">LIVE STREAM</span>
+            </div>
+
+            <div class="news-ticker-scroll-area" id="news-ticker-scroll-area" tabindex="0">
+              <!-- Dynamically populated bulletin items -->
+            </div>
+
+            <div class="news-ticker-footer">
+              <span style="color: var(--text-muted); font-size: 0.72rem; font-family: var(--font-mono);">
+                Auto-updating from MoES feed
+              </span>
+              <button type="button" class="news-ticker-toggle-btn" id="btn-toggle-news-ticker" onclick="OutreachModule.toggleNewsAutoScroll()">
+                Pause Stream
+              </button>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Thematic Research Verticals -->
+    <section class="research-verticals-section" aria-label="Core Research Areas">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Scientific Mandates & Verticals</span>
+          <h2 class="section-title">Core Scientific Focus Areas</h2>
+          <p class="section-subtitle">
+            NCPOR coordinates multi-disciplinary investigations across high-latitude regions and deep-ocean basins to understand climate variability, cryospheric processes, and ocean dynamics.
+          </p>
+        </div>
+
+        <div class="verticals-grid">
+          <div class="vertical-card">
+            <div class="vertical-card-header">
+              <span class="vertical-code">Vertical 01</span>
+              <h3>Polar Science & Cryosphere</h3>
+            </div>
+            <p>
+              Investigating ice-sheet mass balance, deep ice-core paleoclimatology, and snow albedo feedbacks across Antarctic and Arctic glacial systems.
+            </p>
+            <div class="vertical-card-links">
+              <a href="#" class="vertical-link" onclick="App.switchTab('repository'); RepoModule.filterByVertical('Glaciology'); return false;">
+                Glaciology Publications →
+              </a>
+              <a href="#" class="vertical-link" onclick="App.switchTab('repository'); RepoModule.filterByStation('Bharati'); return false;">
+                Ice Core Records →
+              </a>
+            </div>
+          </div>
+
+          <div class="vertical-card">
+            <div class="vertical-card-header">
+              <span class="vertical-code">Vertical 02</span>
+              <h3>Ocean & Atmospheric Sciences</h3>
+            </div>
+            <p>
+              Studying Southern Ocean circulation, air-sea CO₂ exchange, Arctic Kongsfjorden fjord hydrology, and monsoon teleconnection mechanisms.
+            </p>
+            <div class="vertical-card-links">
+              <a href="#" class="vertical-link" onclick="App.switchTab('repository'); RepoModule.filterByVertical('Oceanography'); return false;">
+                Hydrographic Cruises →
+              </a>
+              <a href="#" class="vertical-link" onclick="App.switchTab('repository'); RepoModule.filterByVertical('Atmospheric'); return false;">
+                Atmospheric Telemetry →
+              </a>
+            </div>
+          </div>
+
+          <div class="vertical-card">
+            <div class="vertical-card-header">
+              <span class="vertical-code">Vertical 03</span>
+              <h3>Himalayan Cryosphere (Third Pole)</h3>
+            </div>
+            <p>
+              Monitoring benchmark glaciers in the Chandra-Bhaga basin from Himansh High-Altitude Station (4,050m) to assess downstream freshwater security.
+            </p>
+            <div class="vertical-card-links">
+              <a href="#" class="vertical-link" onclick="App.switchTab('stations'); return false;">
+                Himansh Station Data →
+              </a>
+              <a href="#" class="vertical-link" onclick="App.switchTab('repository'); RepoModule.filterByVertical('Third Pole'); return false;">
+                Glacier Runoff Models →
+              </a>
+            </div>
+          </div>
+
+          <div class="vertical-card">
+            <div class="vertical-card-header">
+              <span class="vertical-code">Vertical 04</span>
+              <h3>Geosciences & Deep Sea Resources</h3>
+            </div>
+            <p>
+              Geological mapping of continental margins, East Antarctic Gondwanaland reconstruction, and benthic ecosystem surveys on ORV Sagar Nidhi.
+            </p>
+            <div class="vertical-card-links">
+              <a href="#" class="vertical-link" onclick="App.switchTab('repository'); RepoModule.filterByVertical('Biogeochemistry'); return false;">
+                Geochemical Surveys →
+              </a>
+              <a href="#" class="vertical-link" onclick="App.switchTab('media'); return false;">
+                Expedition Media →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Climate Teleconnections Section (Why Polar Science Matters to India) -->
+    <section class="teleconnection-section" id="section-teleconnections">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Climate Science Impact</span>
+          <h2 class="section-title">Polar Cryosphere Teleconnections & Indian Climate</h2>
+          <p class="section-subtitle">
+            Changes in high-latitude polar ice sheets and Arctic sea-ice extent directly modulate monsoon intensity, sea-level rise along India's coastline, and ocean carbon sink capacity.
+          </p>
+        </div>
+
+        <div class="teleconnection-grid">
+          <div class="teleconnection-card">
+            <h3>Sea-Level Rise on India's 7,516 km Coastline</h3>
+            <p>
+              Runoff and mass discharge from Antarctic ice shelves directly determine sea-surface heights across Mumbai, Chennai, and Kolkata. Precision monitoring enables climate-resilient coastal defense planning.
+            </p>
+            <span class="tele-impact-pill">Vulnerability: Low-Lying Deltas & Coastal Megacities</span>
+          </div>
+
+          <div class="teleconnection-card">
+            <h3>Arctic Sea-Ice Loss & Monsoon Modulation</h3>
+            <p>
+              Springtime sea-ice reduction in the Barents-Kara Seas excites planetary Rossby wave trains propagating across Eurasia, altering upper-tropospheric thermal gradients that influence Indian Summer Monsoon rainfall.
+            </p>
+            <span class="tele-impact-pill">Impact: Precipitation Dynamics & Agricultural Planning</span>
+          </div>
+
+          <div class="teleconnection-card">
+            <h3>Southern Ocean Planetary Carbon Sink</h3>
+            <p>
+              The Southern Ocean absorbs nearly 40% of all oceanic anthropogenic carbon dioxide. Indian expedition cruises on ORV Sagar Nidhi track air-sea pCO₂ fluxes to quantify global ocean climate regulation.
+            </p>
+            <span class="tele-impact-pill">Global Balance: 40% Anthropogenic Oceanic CO₂</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Science Outreach Articles Section -->
+    <section class="container" id="section-articles" style="padding-top: var(--space-3xl); padding-bottom: var(--space-3xl);">
+      <div class="section-header">
+        <span class="section-tag">Science Communication & Explainers</span>
+        <h2 class="section-title">Polar Science Insights & Technical Briefings</h2>
+        <p class="section-subtitle">
+          Authoritative, plain-language translations of recent polar findings tailored for students, researchers, educators, and policy planners.
+        </p>
+      </div>
+
+      <div class="audience-filter-bar">
+        <button type="button" class="audience-pill active" data-audience="all">All Audiences</button>
+        <button type="button" class="audience-pill" data-audience="School Students">School Students</button>
+        <button type="button" class="audience-pill" data-audience="Educators & College">Higher Education & Faculty</button>
+        <button type="button" class="audience-pill" data-audience="General Public">General Public</button>
+        <button type="button" class="audience-pill" data-audience="Policy Makers">Policy & Governance</button>
+      </div>
+
+      <div class="articles-grid" id="articles-grid-container"></div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       VIEW 2: EXPLORE POLAR SCIENCE (KNOWLEDGE REPOSITORY & PUBLICATIONS)
+       ========================================================================== -->
+  <section class="portal-view" id="view-repository" style="display: none; padding: var(--space-2xl) 0;">
+    <div class="container">
+      <div class="section-header" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: var(--space-md);">
+        <div>
+          <span class="section-tag">Scientific Knowledge Repository</span>
+          <h2 class="section-title">Explore Polar Science & Research Catalog</h2>
+          <p class="section-subtitle">
+            Catalog of peer-reviewed research papers, expedition reports, and hydrographic datasets produced by Indian scientific missions, with complete metadata, BibTeX citations, and grounded plain summaries.
+          </p>
+        </div>
+        <button type="button" class="btn-hero-primary" onclick="RepoModule.openAddResourceModal()">
+          Register Research Publication
+        </button>
+      </div>
+
+      <!-- Faceted Search & Filtering Bar -->
+      <div class="repo-search-bar">
+        <div class="search-input-group">
+          <input type="text" id="repo-search-input" class="search-input" placeholder="Search by title, keywords, authors, microplastics, ice core, Rossby waves, Kongsfjorden..." />
+        </div>
+        <div class="filter-dropdowns-row">
+          <select id="repo-filter-station" class="filter-select">
+            <option value="">All Stations / Vessels</option>
+            <option value="Maitri">Maitri (Antarctica)</option>
+            <option value="Bharati">Bharati (Antarctica)</option>
+            <option value="Himadri">Himadri (Arctic)</option>
+            <option value="Himansh">Himansh (Himalayas)</option>
+            <option value="Sagar">ORV Sagar Nidhi / Kanya</option>
+          </select>
+
+          <select id="repo-filter-vertical" class="filter-select">
+            <option value="">All Scientific Disciplines</option>
+            <option value="Glaciology">Paleoclimatology & Glaciology</option>
+            <option value="Biogeochemistry">Polar Biology & Biogeochemistry</option>
+            <option value="Oceanography">Physical & Chemical Oceanography</option>
+            <option value="Atmospheric">Atmospheric & Climate Teleconnections</option>
+            <option value="Third Pole">Himalayan Cryosphere</option>
+          </select>
+
+          <select id="repo-filter-year" class="filter-select">
+            <option value="">All Publication Years</option>
+            <option value="2024">2024</option>
+            <option value="2023">2023</option>
+          </select>
+
+          <select id="repo-filter-sort" class="filter-select">
+            <option value="newest">Sort: Newest First</option>
+            <option value="oldest">Sort: Oldest First</option>
+            <option value="citations">Sort: Most Cited</option>
+            <option value="title">Sort: Title (A–Z)</option>
+          </select>
+
+          <button type="button" class="btn-cite" onclick="document.getElementById('repo-search-input').value=''; document.getElementById('repo-filter-station').value=''; document.getElementById('repo-filter-vertical').value=''; document.getElementById('repo-filter-year').value=''; document.getElementById('repo-filter-sort').value='newest'; RepoModule.loadPublications();">
+            Reset Filters
+          </button>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-md);">
+        <h3 id="repo-results-count" style="font-size: 0.875rem; font-family: var(--font-mono); color: var(--polar-blue); font-weight: 600;">
+          Loading publications...
+        </h3>
+      </div>
+
+      <!-- Publications List -->
+      <div class="publications-list" id="publications-list-container"></div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       VIEW 3: INDIAN RESEARCH (FIELD STATIONS & OBSERVATORIES)
+       ========================================================================== -->
+  <section class="portal-view" id="view-stations" style="display: none; padding: var(--space-2xl) 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Research Infrastructure</span>
+        <h2 class="section-title">India's Polar Research Stations & Field Observatories</h2>
+        <p class="section-subtitle">
+          Inspect technical specifications, geographical coordinates, zero-discharge environmental engineering, and live sensory telemetry for India's permanent polar bases.
+        </p>
+      </div>
+
+      <div class="station-selector-grid" id="station-selector-grid"></div>
+      <div class="station-showcase" id="station-showcase-container"></div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       VIEW 4: MEDIA HUB (VIDEOS, AUDIO SOUNDSCAPES, 4K PHOTOS & PRESS KITS)
+       ========================================================================== -->
+  <section class="portal-view" id="view-media" style="display: none; padding: var(--space-2xl) 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Media Dissemination Hub</span>
+        <h2 class="section-title">Verified Polar Media & Audio Dissemination</h2>
+        <p class="section-subtitle">
+          Watch official polar science documentaries, listen to sub-zero audio soundscapes and hydrophone recordings, explore 4K photography, and download accredited press packages.
+        </p>
+      </div>
+
+      <!-- Main Media Type Filter Bar -->
+      <div class="media-filter-bar">
+        <button type="button" class="media-tab-btn active" data-filter="video">🎥 Videos & Documentaries</button>
+        <button type="button" class="media-tab-btn" data-filter="audio">🎧 Audio Soundscapes</button>
+        <button type="button" class="media-tab-btn" data-filter="photo">📸 4K Photography</button>
+        <button type="button" class="media-tab-btn" data-filter="press">📰 Press Release Kits</button>
+        <button type="button" class="media-tab-btn" data-filter="all">All Assets</button>
+
+        <input type="text" id="media-search-input" class="media-search-input" placeholder="Search videos, audios, photos..." />
+      </div>
+
+      <!-- SECTION A: VIDEOS & DOCUMENTARIES -->
+      <div class="media-sub-section" id="media-section-videos">
+        <div class="section-header" style="margin-bottom: var(--space-md);">
+          <span class="section-tag">Expedition Documentaries</span>
+          <h3 style="font-family: var(--font-heading); font-size: 1.3rem; color: var(--ocean-navy);">
+            Official Polar Science Documentaries & B-Roll
+          </h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">
+            Click on any video card below to watch in high definition with playback controls and closed captions.
+          </p>
+        </div>
+
+        <!-- Video Category Filter Pills -->
+        <div class="videos-filter-bar">
+          <button type="button" class="video-filter-pill active" onclick="MediaModule.filterVideos('all')">All Videos</button>
+          <button type="button" class="video-filter-pill" onclick="MediaModule.filterVideos('Antarctica')">Antarctica (Bharati/Maitri)</button>
+          <button type="button" class="video-filter-pill" onclick="MediaModule.filterVideos('Arctic')">Arctic (Himadri/IndARC)</button>
+          <button type="button" class="video-filter-pill" onclick="MediaModule.filterVideos('Himalayas')">Himalayan Third Pole</button>
+          <button type="button" class="video-filter-pill" onclick="MediaModule.filterVideos('Southern Ocean')">Southern Ocean Cruise</button>
+        </div>
+
+        <div class="videos-grid" id="polar-videos-grid-container">
+          <!-- Populated dynamically by MediaModule.renderVideos() -->
+        </div>
+      </div>
+
+      <!-- SECTION B: PLAYABLE AUDIO SOUNDSCAPES -->
+      <div class="media-sub-section" id="media-section-audio" style="margin-top: var(--space-3xl);">
+        <div class="section-header" style="margin-bottom: var(--space-md);">
+          <span class="section-tag">Acoustic Archives</span>
+          <h3 style="font-family: var(--font-heading); font-size: 1.3rem; color: var(--ocean-navy);">
+            Polar Audio Soundscapes & Hydrophone Recordings
+          </h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">
+            Listen to authentic polar acoustic environments: tidewater glacier calving, Antarctic blizzards, underwater seal vocalizations, and expedition scientist logs.
+          </p>
+        </div>
+
+        <!-- Audio Category Filter Pills -->
+        <div class="videos-filter-bar">
+          <button type="button" class="audio-filter-pill active" onclick="MediaModule.filterAudios('all')">All Audio</button>
+          <button type="button" class="audio-filter-pill" onclick="MediaModule.filterAudios('Soundscapes')">Nature Soundscapes</button>
+          <button type="button" class="audio-filter-pill" onclick="MediaModule.filterAudios('Interviews')">Interviews & Bio-Acoustics</button>
+        </div>
+
+        <div class="audios-grid" id="polar-audios-grid-container">
+          <!-- Populated dynamically by MediaModule.renderAudios() -->
+        </div>
+      </div>
+
+      <!-- SECTION C: 4K PHOTOGRAPHY GALLERY -->
+      <div class="media-sub-section" id="media-section-photos" style="margin-top: var(--space-3xl);">
+        <div class="section-header" style="margin-bottom: var(--space-md);">
+          <span class="section-tag">High-Resolution Imagery</span>
+          <h3 style="font-family: var(--font-heading); font-size: 1.3rem; color: var(--ocean-navy);">
+            4K Expedition Photo Gallery
+          </h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">
+            Click on any photo to inspect high-resolution details, geographic coordinates, and CC-BY 4.0 open access license manifests.
+          </p>
+        </div>
+
+        <div class="media-grid" id="media-grid-container"></div>
+      </div>
+
+      <!-- SECTION D: PRESS RELEASE PACKAGES -->
+      <div class="media-sub-section" id="media-section-press" style="margin-top: var(--space-3xl);">
+        <div class="section-header">
+          <span class="section-tag">Press & Broadcaster Dossiers</span>
+          <h3 style="font-family: var(--font-heading); font-size: 1.3rem; color: var(--ocean-navy);">
+            Expedition Press Release Packages
+          </h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">
+            Accredited media dossiers including high-resolution imagery, verified scientific factsheets, and clear CC-BY licensing attribution.
+          </p>
+        </div>
+
+        <div class="press-kits-grid" id="press-kits-container"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       VIEW 5: RESOURCES (EDUCATIONAL TOOLKITS, DATASETS & STUDENT QUIZ)
+       ========================================================================== -->
+  <section class="portal-view" id="view-resources" style="display: none; padding: var(--space-2xl) 0;">
+    <div class="container">
+      
+      <!-- Educational Toolkits -->
+      <div>
+        <div class="section-header">
+          <span class="section-tag">Open Educational Resources</span>
+          <h2 class="section-title">Educational Toolkits & Classroom Resources</h2>
+          <p class="section-subtitle">
+            Standardized classroom activity packages, high-resolution scientific infographics, and computational cryosphere exercises for schools, colleges, and educators.
+          </p>
+        </div>
+        <div class="toolkits-grid" id="toolkits-grid-container"></div>
+      </div>
+
+      <!-- Student Interactive Quiz & Certificate -->
+      <div style="margin-top: var(--space-3xl);">
+        <div class="quiz-container">
+          <div class="quiz-header">
+            <div>
+              <span class="section-tag">Academic Assessment</span>
+              <h3 style="font-family: var(--font-heading); font-size: 1.35rem; color: var(--ocean-navy);">
+                Polar Cryosphere & Expedition Knowledge Assessment
+              </h3>
+              <p style="font-size: 0.875rem; color: var(--text-secondary); margin-top: 4px;">
+                Complete the verified assessment on Indian polar research programs to generate an official accredited certificate issued by NCPOR / MoES.
+              </p>
+            </div>
+            <div style="display: flex; gap: var(--space-xs); align-items: center; flex-wrap: wrap;">
+              <input type="text" id="quiz-student-name" class="form-input" placeholder="Full Candidate Name" style="width: 200px; padding: 8px 12px; font-size: 0.8125rem;" />
+              <input type="text" id="quiz-student-school" class="form-input" placeholder="Institution / College" style="width: 220px; padding: 8px 12px; font-size: 0.8125rem;" />
+            </div>
+          </div>
+
+          <div id="quiz-questions-wrapper"></div>
+
+          <div class="quiz-footer" style="margin-top: var(--space-lg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-md);">
+            <span style="font-size: 0.8125rem; color: var(--text-muted); font-family: var(--font-mono);">
+              All questions must be answered for accredited evaluation.
+            </span>
+            <button type="button" class="btn-hero-primary" id="btn-submit-quiz">
+              Submit Assessment & Generate Certificate
+            </button>
+          </div>
+
+          <div id="certificate-output-area"></div>
+        </div>
+      </div>
+
+      <!-- Open Datasets Catalog Table -->
+      <div style="margin-top: var(--space-3xl);">
+        <div class="section-header">
+          <span class="section-tag">Open Government Data (OGD)</span>
+          <h3 style="font-family: var(--font-heading); font-size: 1.35rem; color: var(--ocean-navy);">
+            Open Polar Scientific Datasets Catalog
+          </h3>
+          <p style="font-size: 0.875rem; color: var(--text-secondary); margin-top: 4px;">
+            Standardized NetCDF-4, CSV, and hydrographic datasets released under the Government Open Data License (GODL-India).
+          </p>
+        </div>
+
+        <div style="overflow-x: auto;">
+          <table class="datasets-table">
+            <thead>
+              <tr>
+                <th>Dataset Title & Parameters</th>
+                <th>Station / Mission</th>
+                <th>Format</th>
+                <th>Records</th>
+                <th>License</th>
+                <th>Access</th>
+              </tr>
+            </thead>
+            <tbody id="datasets-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       VIEW 6: ABOUT NCPOR & POLAR MANDATE
+       ========================================================================== -->
+  <section class="portal-view" id="view-about" style="display: none; padding: var(--space-2xl) 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Institutional Mandate</span>
+        <h2 class="section-title">About the National Centre for Polar and Ocean Research</h2>
+        <p class="section-subtitle">
+          Autonomous research institution under the Ministry of Earth Sciences (MoES), Government of India, coordinating all Indian scientific missions across polar and oceanic realms.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-card">
+          <h3 style="color: var(--ocean-navy); font-size: 1.2rem; margin-bottom: 12px;">Our Mission & Leadership</h3>
+          <p style="color: var(--text-secondary); line-height: 1.6; font-size: 0.9rem;">
+            Headquartered in Headland Sada, Vasco-da-Gama, Goa, NCPOR serves as the nodal agency for planning, executing, and steering India's research in Antarctica, the Arctic, the Southern Ocean, and the Himalayas.
+          </p>
+          <ul style="margin-top: 14px; margin-left: 20px; font-size: 0.875rem; color: var(--text-secondary); line-height: 1.7;">
+            <li>Conducting continuous multi-disciplinary earth and atmospheric science observation.</li>
+            <li>Operating year-round state-of-the-art research bases (Bharati, Maitri, Himadri, Himansh).</li>
+            <li>Archiving ice-core records in national sub-zero paleoclimate vaults.</li>
+            <li>Leading India's consultative role in the Antarctic Treaty System and Arctic Council.</li>
+          </ul>
+        </div>
+
+        <div class="about-card">
+          <h3 style="color: var(--ocean-navy); font-size: 1.2rem; margin-bottom: 12px;">Key Milestones Timeline</h3>
+          <div class="timeline-list" style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+            <div style="margin-bottom: 10px;"><strong>1981:</strong> 1st Indian Scientific Expedition to Antarctica led by Dr. S.Z. Qasim.</div>
+            <div style="margin-bottom: 10px;"><strong>1983:</strong> Commissioning of Dakshin Gangotri & India joins Antarctic Treaty.</div>
+            <div style="margin-bottom: 10px;"><strong>1989:</strong> Inauguration of permanent research station Maitri in Schirmacher Oasis.</div>
+            <div style="margin-bottom: 10px;"><strong>2008:</strong> Inauguration of Arctic research station Himadri in Ny-Ålesund, Svalbard.</div>
+            <div style="margin-bottom: 10px;"><strong>2012:</strong> Commissioning of state-of-the-art station Bharati on hydraulic stilts.</div>
+            <div style="margin-bottom: 10px;"><strong>2014:</strong> Deployment of IndARC underwater moored observatory in Kongsfjorden.</div>
+            <div style="margin-bottom: 10px;"><strong>2016:</strong> Inauguration of Himansh High-Altitude Station (4,050m) in the Himalayas.</div>
+            <div style="margin-bottom: 10px;"><strong>2022:</strong> Enactment of the Indian Antarctic Act 2022.</div>
+            <div><strong>2024:</strong> India hosts the 46th Antarctic Treaty Consultative Meeting (ATCM 46) in Kochi.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       VIEW 7: EDITORIAL & GOVERNANCE CONSOLE
+       ========================================================================== -->
+  <section class="portal-view" id="view-admin" style="display: none; padding: var(--space-2xl) 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Administrative & Editorial Workbench</span>
+        <h2 class="section-title">NCPOR Editorial, Moderation & Dissemination Console</h2>
+        <p class="section-subtitle">
+          Manage research publications, media assets, and outreach notices with integrated GIGW compliance audits and multi-tier publishing workflows.
+        </p>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="admin-tabs-nav">
+        <button type="button" class="admin-tab-btn active" data-admin-tab="overview">
+          Overview & Metrics
+        </button>
+        <button type="button" class="admin-tab-btn" data-admin-tab="queue">
+          Moderation Queue
+        </button>
+        <button type="button" class="admin-tab-btn" data-admin-tab="resources">
+          Manage Publications
+        </button>
+        <button type="button" class="admin-tab-btn" data-admin-tab="media">
+          Manage Media Assets
+        </button>
+        <button type="button" class="admin-tab-btn" data-admin-tab="outreach">
+          Manage Announcements
+        </button>
+        <button type="button" class="admin-tab-btn" data-admin-tab="submit">
+          Ingestion Workbench
+        </button>
+      </div>
+
+      <!-- Panel 1: Overview & KPIs -->
+      <div class="admin-sub-panel" id="admin-tab-overview">
+        <div class="admin-kpi-grid" id="admin-kpi-grid-container"></div>
+      </div>
+
+      <!-- Panel 2: Moderation Queue -->
+      <div class="admin-sub-panel" id="admin-tab-queue" style="display: none;">
+        <div style="overflow-x: auto;">
+          <table class="queue-table">
+            <thead>
+              <tr>
+                <th style="width: 35%;">Title & Submitter</th>
+                <th>Station / Mission</th>
+                <th>NLP Taxonomy Tags</th>
+                <th>Governance & GIGW</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="admin-queue-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Panel 3: Manage Publications -->
+      <div class="admin-sub-panel" id="admin-tab-resources" style="display: none;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-md);">
+          <h3 style="font-family: var(--font-heading); font-size: 1.125rem; color: var(--ocean-navy);">Cataloged Research Publications</h3>
+          <button type="button" class="btn-explain-ai" onclick="RepoModule.openAddResourceModal()">Add Publication</button>
+        </div>
+        <div style="overflow-x: auto;">
+          <table class="queue-table">
+            <thead>
+              <tr>
+                <th>Title & Identifier</th>
+                <th>Station</th>
+                <th>Discipline</th>
+                <th>Year</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="admin-resources-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Panel 4: Manage Media -->
+      <div class="admin-sub-panel" id="admin-tab-media" style="display: none;">
+        <div style="display: grid; grid-template-columns: 1.6fr 1fr; gap: var(--space-lg);">
+          <div>
+            <h3 style="font-family: var(--font-heading); font-size: 1.125rem; color: var(--ocean-navy); margin-bottom: var(--space-md);">Registered Media Assets</h3>
+            <div style="overflow-x: auto;">
+              <table class="queue-table">
+                <thead>
+                  <tr>
+                    <th>Title & Category</th>
+                    <th>Type</th>
+                    <th>Station</th>
+                    <th>License</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-media-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+          <div>
+            <div class="submission-form-card">
+              <h4 style="color: var(--ocean-navy); margin-bottom: var(--space-sm); font-size: 1rem;">Register New Media Asset</h4>
+              <form id="new-media-form">
+                <div class="form-group">
+                  <label class="form-label">Asset Title</label>
+                  <input type="text" id="media-new-title" class="form-input" required placeholder="e.g. Drone Survey of Maitri Station" />
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                  <div class="form-group">
+                    <label class="form-label">Type</label>
+                    <select id="media-new-type" class="form-select">
+                      <option value="photo">4K Photo</option>
+                      <option value="video">Video B-Roll</option>
+                      <option value="article">Article / Story</option>
+                      <option value="audio">Audio Soundscape</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Station</label>
+                    <select id="media-new-station" class="form-select">
+                      <option value="Bharati">Bharati</option>
+                      <option value="Maitri">Maitri</option>
+                      <option value="Himadri">Himadri</option>
+                      <option value="Himansh">Himansh</option>
+                      <option value="ORV Sagar Nidhi">ORV Sagar Nidhi</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Category</label>
+                  <input type="text" id="media-new-category" class="form-input" required placeholder="e.g. Polar Infrastructure" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Expedition / Location</label>
+                  <input type="text" id="media-new-expedition" class="form-input" required placeholder="e.g. 43rd ISEA" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Credit / Source</label>
+                  <input type="text" id="media-new-credit" class="form-input" required placeholder="e.g. Dr. R. Verma / NCPOR" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Technical Description</label>
+                  <textarea id="media-new-desc" class="form-textarea" rows="2" required placeholder="Asset description and context..."></textarea>
+                </div>
+                <button type="submit" class="btn-hero-primary" style="width: 100%; justify-content: center;">
+                  Save Media Asset
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 5: Manage Announcements -->
+      <div class="admin-sub-panel" id="admin-tab-outreach" style="display: none;">
+        <div style="display: grid; grid-template-columns: 1.6fr 1fr; gap: var(--space-lg);">
+          <div>
+            <h3 style="font-family: var(--font-heading); font-size: 1.125rem; color: var(--ocean-navy); margin-bottom: var(--space-md);">Published Notices & Events</h3>
+            <div style="overflow-x: auto;">
+              <table class="queue-table">
+                <thead>
+                  <tr>
+                    <th>Title & Summary</th>
+                    <th>Date</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-events-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+          <div>
+            <div class="submission-form-card">
+              <h4 style="color: var(--ocean-navy); margin-bottom: var(--space-sm); font-size: 1rem;">Post New Announcement</h4>
+              <form id="new-event-form">
+                <div class="form-group">
+                  <label class="form-label">Notice Title</label>
+                  <input type="text" id="evt-new-title" class="form-input" required placeholder="e.g. 44th Antarctic Expedition Call" />
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                  <div class="form-group">
+                    <label class="form-label">Date</label>
+                    <input type="date" id="evt-new-date" class="form-input" required />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Category</label>
+                    <select id="evt-new-category" class="form-select">
+                      <option value="Expedition Call">Expedition Call</option>
+                      <option value="Webinar">Webinar</option>
+                      <option value="Conference">Conference</option>
+                      <option value="General News">General News</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Summary & Registration Details</label>
+                  <textarea id="evt-new-summary" class="form-textarea" rows="3" required placeholder="Details, deadlines, registration URLs..."></textarea>
+                </div>
+                <button type="submit" class="btn-hero-primary" style="width: 100%; justify-content: center;">
+                  Publish Announcement
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 6: Researcher Ingestion Workbench -->
+      <div class="admin-sub-panel" id="admin-tab-submit" style="display: none;">
+        <div class="submission-form-card">
+          <h3 style="font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: var(--space-md); color: var(--ocean-navy);">
+            Ingest New Expedition Report or Research Paper
+          </h3>
+          <form id="new-submission-form">
+            <div class="form-group">
+              <label class="form-label">Publication / Document Title</label>
+              <input type="text" id="sub-title" class="form-input" required placeholder="e.g. Seasonal Snow Albedo Decline Observed during 43rd ISEA" />
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md);">
+              <div class="form-group">
+                <label class="form-label">Principal Investigator / Author</label>
+                <input type="text" id="sub-author" class="form-input" required placeholder="Dr. R. K. Mukherjee, NCPOR" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Expedition Campaign</label>
+                <select id="sub-expedition" class="form-select">
+                  <option value="43rd ISEA">43rd Antarctic Expedition (ISEA)</option>
+                  <option value="42nd ISEA">42nd Antarctic Expedition (ISEA)</option>
+                  <option value="Arctic Winter 2023-24">Arctic Winter Expedition (Himadri)</option>
+                  <option value="12th SOE">12th Southern Ocean Expedition (SOE)</option>
+                  <option value="Himansh High-Altitude">Himansh Cryospheric Campaign</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md);">
+              <div class="form-group">
+                <label class="form-label">Station / Outpost</label>
+                <select id="sub-station" class="form-select">
+                  <option value="Bharati">Bharati (Antarctica)</option>
+                  <option value="Maitri">Maitri (Antarctica)</option>
+                  <option value="Himadri">Himadri (Arctic)</option>
+                  <option value="Himansh">Himansh (Third Pole)</option>
+                  <option value="ORV Sagar Nidhi">ORV Sagar Nidhi (Vessel)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Content Classification</label>
+                <select id="sub-type" class="form-select">
+                  <option value="Research Paper">Peer-Reviewed Research Paper</option>
+                  <option value="Dataset & Cruise Log">Scientific Dataset & Cruise Log</option>
+                  <option value="Media Asset (Video/4K)">Expedition Media Asset (Video/Photo)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Technical Abstract</label>
+              <textarea id="sub-abstract" class="form-textarea" rows="4" required placeholder="Paste technical summary or expedition observations..."></textarea>
+            </div>
+
+            <div style="margin-bottom: var(--space-md);">
+              <button type="button" class="btn-explain-ai" id="btn-ai-auto-tag">
+                Run NLP Taxonomy & Summary Extraction
+              </button>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Suggested Taxonomy Keywords</label>
+              <input type="text" id="sub-tags" class="form-input" placeholder="Tags auto-extracted by NLP model" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Generated Plain-Language Summary (Citizen / Outreach Ready)</label>
+              <textarea id="sub-summary" class="form-textarea" rows="2" placeholder="Layman explanation auto-generated from abstract"></textarea>
+            </div>
+
+            <div style="display: flex; gap: var(--space-xs); justify-content: flex-end;">
+              <button type="reset" class="btn-cite">Reset</button>
+              <button type="submit" class="btn-hero-primary">
+                Submit to Governance Queue
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       MODALS: VIDEO PLAYER, EXPLAIN PAPER, CITATION, LIGHTBOX & ADD RESOURCE
+       ========================================================================== -->
+  <!-- Video Player Modal -->
+  <div class="modal-backdrop" id="modal-video-player" role="dialog" aria-modal="true">
+    <div class="modal-window modal-video-window">
+      <button type="button" class="modal-close-btn" onclick="MediaModule.closeVideoModal()" aria-label="Close video player">×</button>
+      <div id="modal-video-content"></div>
+    </div>
+  </div>
+
+  <!-- AI Explain Paper & Article Reader Modal -->
+  <div class="modal-backdrop" id="modal-explain-paper" role="dialog" aria-modal="true">
+    <div class="modal-window">
+      <button type="button" class="modal-close-btn" onclick="RepoModule.closeModals()" aria-label="Close modal">×</button>
+      <div id="modal-explain-content"></div>
+    </div>
+  </div>
+
+  <!-- Citation Export Modal -->
+  <div class="modal-backdrop" id="modal-citation" role="dialog" aria-modal="true">
+    <div class="modal-window" style="max-width: 580px;">
+      <button type="button" class="modal-close-btn" onclick="RepoModule.closeModals()" aria-label="Close modal">×</button>
+      <div id="modal-citation-content"></div>
+    </div>
+  </div>
+
+  <!-- Media Lightbox Modal -->
+  <div class="modal-backdrop" id="modal-media-lightbox" role="dialog" aria-modal="true">
+    <div class="modal-window" style="max-width: 820px;">
+      <button type="button" class="modal-close-btn" onclick="RepoModule.closeModals()" aria-label="Close modal">×</button>
+      <div id="modal-media-content"></div>
+    </div>
+  </div>
+
+  <!-- Direct Add Resource Modal -->
+  <div class="modal-backdrop" id="modal-add-resource" role="dialog" aria-modal="true">
+    <div class="modal-window" style="max-width: 680px;">
+      <button type="button" class="modal-close-btn" onclick="RepoModule.closeModals()" aria-label="Close modal">×</button>
+      <h3 style="font-family: var(--font-heading); font-size: 1.25rem; color: var(--ocean-navy); margin-bottom: var(--space-md);">
+        Catalog Scientific Publication
+      </h3>
+      <form id="add-resource-form">
+        <div class="form-group">
+          <label class="form-label">Publication Title</label>
+          <input type="text" id="new-pub-title" class="form-input" required placeholder="e.g. Holocene Marine Sediment Records from Prydz Bay" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Authors</label>
+          <input type="text" id="new-pub-authors" class="form-input" required placeholder="Dr. S. K. Nair, Dr. Ananya Sharma" />
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xs);">
+          <div class="form-group">
+            <label class="form-label">Station / Outpost</label>
+            <select id="new-pub-station" class="form-select">
+              <option value="Bharati">Bharati (Antarctica)</option>
+              <option value="Maitri">Maitri (Antarctica)</option>
+              <option value="Himadri">Himadri (Arctic)</option>
+              <option value="Himansh">Himansh (Third Pole)</option>
+              <option value="ORV Sagar Nidhi">ORV Sagar Nidhi</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Expedition</label>
+            <input type="text" id="new-pub-expedition" class="form-input" required placeholder="e.g. 43rd ISEA" />
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xs);">
+          <div class="form-group">
+            <label class="form-label">Scientific Discipline</label>
+            <select id="new-pub-vertical" class="form-select">
+              <option value="Glaciology">Paleoclimatology & Glaciology</option>
+              <option value="Biogeochemistry">Polar Biology & Biogeochemistry</option>
+              <option value="Oceanography">Physical & Chemical Oceanography</option>
+              <option value="Atmospheric">Atmospheric & Climate Teleconnections</option>
+              <option value="Third Pole">Himalayan Cryosphere</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Publication Year</label>
+            <input type="number" id="new-pub-year" class="form-input" value="2024" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Technical Abstract</label>
+          <textarea id="new-pub-abstract" class="form-textarea" rows="3" required placeholder="Provide technical abstract..."></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Keywords (comma-separated)</label>
+          <input type="text" id="new-pub-keywords" class="form-input" placeholder="e.g. Sediment, Paleoclimate, Prydz Bay" />
+        </div>
+        <div style="display: flex; gap: var(--space-xs); justify-content: flex-end; margin-top: var(--space-md);">
+          <button type="button" class="btn-cite" onclick="RepoModule.closeModals()">Cancel</button>
+          <button type="submit" class="btn-hero-primary">Publish to Repository</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- Institutional Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong style="color: var(--ocean-navy); font-size: 0.95rem;">National Centre for Polar and Ocean Research (NCPOR)</strong>
+        <p style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 2px;">
+          Ministry of Earth Sciences, Government of India • Headland Sada, Vasco-da-Gama, Goa 403804
+        </p>
+      </div>
+      <ul class="footer-nav-links">
+        <li><a href="#" onclick="App.switchTab('outreach'); return false;">Home</a></li>
+        <li><a href="#" onclick="App.switchTab('repository'); return false;">Explore Polar Science</a></li>
+        <li><a href="#" onclick="App.switchTab('stations'); return false;">Indian Research</a></li>
+        <li><a href="#" onclick="App.switchTab('media'); return false;">Media Hub</a></li>
+        <li><a href="#" onclick="App.switchTab('resources'); return false;">Resources & Quiz</a></li>
+        <li><a href="#" onclick="App.switchTab('about'); return false;">About NCPOR</a></li>
+        <li><a href="#" onclick="AIChatModule.openChat(); return false;">Ask Polar AI</a></li>
+      </ul>
+      <div style="font-size: 0.75rem; text-align: right;">
+        <p style="color: var(--text-muted);">Smart India Hackathon (SIH26063) • MoES Track</p>
+        <p style="color: var(--status-active); font-family: var(--font-mono); font-weight: 600; margin-top: 2px;">GIGW 3.0 & WCAG 2.1 AA Compliant</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       FLOATING POLAR AI CHATBOT WIDGET (ALWAYS VISIBLE & ACCESSIBLE)
+       ========================================================================== -->
+  <div class="floating-chat-container" id="floating-chat-container">
+    
+    <!-- Floating Launcher Button -->
+    <button type="button" class="floating-chat-btn" id="floating-chat-btn" onclick="AIChatModule.toggleChat()" aria-label="Open Polar AI Assistant" title="Ask Polar AI Assistant">
+      <div class="chat-btn-icon-box">
+        <span class="chat-btn-icon">❄️</span>
+        <span class="chat-btn-sparkle">✨</span>
+      </div>
+      <div class="chat-btn-label">
+        <span class="chat-btn-title">Polar AI</span>
+        <span class="chat-btn-status"><span class="chat-status-dot"></span> Online</span>
+      </div>
+    </button>
+
+    <!-- Floating Chatbot Modal / Drawer -->
+    <div class="floating-chat-widget" id="floating-chat-widget" role="dialog" aria-modal="true" aria-label="Polar AI Conversational Assistant">
+      
+      <!-- Chat Header -->
+      <div class="floating-chat-header">
+        <div class="fchat-header-info">
+          <div class="fchat-avatar">❄️</div>
+          <div>
+            <div class="fchat-title">
+              <span>Polar AI Assistant</span>
+              <span class="fchat-badge" id="chat-provider-badge">● Grounded</span>
+            </div>
+            <div class="fchat-subtitle">NCPOR Polar Science AI</div>
+          </div>
+        </div>
+
+        <div class="fchat-header-actions">
+          <button type="button" class="fchat-icon-btn" id="btn-reset-chat" title="Clear chat history" aria-label="Clear chat">
+            🔄
+          </button>
+          <button type="button" class="fchat-icon-btn" onclick="AIChatModule.closeChat()" title="Minimize chat" aria-label="Close chat">
+            ✕
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Starter Chips Strip -->
+      <div class="floating-chat-chips" id="floating-chat-chips">
+        <button type="button" class="fchat-chip" onclick="AIChatModule.handleChipClick('What is polar science?')">What is polar science?</button>
+        <button type="button" class="fchat-chip" onclick="AIChatModule.handleChipClick('Why is Antarctica important?')">Why is Antarctica important?</button>
+        <button type="button" class="fchat-chip" onclick="AIChatModule.handleChipClick('Tell me about India\'s polar research.')">India's polar research</button>
+        <button type="button" class="fchat-chip" onclick="AIChatModule.handleChipClick('Explain Antarctica to me like I am a school student.')">Student explainer 🐧</button>
+        <button type="button" class="fchat-chip" onclick="AIChatModule.handleChipClick('What research is conducted at Bharati station?')">Bharati Station</button>
+      </div>
+
+      <!-- Chat Messages Container -->
+      <div class="floating-chat-messages" id="chat-messages-container">
+        <div class="chat-msg ai">
+          <div class="ai-msg-header">
+            <span class="ai-tag">NCPOR POLAR AI</span>
+            <span class="ai-status">● Ready</span>
+          </div>
+          <div class="ai-response-body">
+            <p>
+              Namaste! I am your <strong>Polar Science Conversational Assistant</strong>. You can ask me any question about:
+            </p>
+            <ul style="margin-top: 6px; margin-left: 18px; font-size: 0.82rem; line-height: 1.5;">
+              <li>India's Antarctic stations (Bharati, Maitri, Dakshin Gangotri)</li>
+              <li>Arctic research at Himadri & IndARC mooring in Svalbard</li>
+              <li>Himalayan glaciology at Himansh (Third Pole)</li>
+              <li>Climate change, melting ice, sea levels & monsoon linkages</li>
+              <li>Polar animals (penguins, seals, polar bears, krill)</li>
+            </ul>
+            <p style="margin-top: 8px; font-size: 0.78rem; color: var(--text-muted);">
+              💡 Tip: Click any starter topic above or type your question below. I remember conversation context across follow-ups!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chat Input Area -->
+      <div class="floating-chat-input-area">
+        <div class="fchat-input-row">
+          <input type="text" id="chat-user-input" class="fchat-input" placeholder="Ask a question about polar science..." autocomplete="off" />
+          <button type="button" id="chat-send-btn" class="fchat-send-btn" aria-label="Send question">
+            <span>Send</span> ➤
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="/js/outreach.js"></script>
+  <script src="/js/repository.js"></script>
+  <script src="/js/media.js"></script>
+  <script src="/js/ai-chat.js"></script>
+  <script src="/js/admin.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
