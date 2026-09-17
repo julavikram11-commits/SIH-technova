@@ -1,4 +1,5 @@
 {
+  "outputDirectory": "static",
   "rewrites": [
     {
       "source": "/api",
@@ -9,56 +10,8 @@
       "destination": "/api/index.py"
     },
     {
-      "source": "/css/(.*)",
-      "destination": "/static/css/$1"
-    },
-    {
-      "source": "/js/(.*)",
-      "destination": "/static/js/$1"
-    },
-    {
-      "source": "/assets/(.*)",
-      "destination": "/static/assets/$1"
-    },
-    {
-      "source": "/index.html",
-      "destination": "/static/index.html"
-    },
-    {
-      "source": "/",
-      "destination": "/static/index.html"
-    },
-    {
-      "source": "/resources",
-      "destination": "/static/index.html"
-    },
-    {
-      "source": "/repository",
-      "destination": "/static/index.html"
-    },
-    {
-      "source": "/media",
-      "destination": "/static/index.html"
-    },
-    {
-      "source": "/stations",
-      "destination": "/static/index.html"
-    },
-    {
-      "source": "/about",
-      "destination": "/static/index.html"
-    },
-    {
-      "source": "/admin",
-      "destination": "/static/index.html"
-    },
-    {
-      "source": "/outreach",
-      "destination": "/static/index.html"
-    },
-    {
       "source": "/(.*)",
-      "destination": "/api/index.py"
+      "destination": "/index.html"
     }
   ]
 }
